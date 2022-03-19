@@ -1,11 +1,11 @@
-import initMenuMobile from "./menu-mobile";
+import debounce from "./debounce.js";
 
 export default class ScrollAnima {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections);
     this.windowMetade = window.innerHeight * 0.6;
 
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
   }
 
   // get distance of each item in relation to top of site
